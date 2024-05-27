@@ -69,7 +69,7 @@
     let productdata = []
 
     function FetchData() {
-        fetch("https://backend-intern-h5fj.onrender.com/cart")
+        fetch("https://backend-intern-1-h5e8.onrender.com/cart")
             .then((res) => res.json())
             .then((data) => {
                 List(data)
@@ -95,7 +95,7 @@
 <div class="card-body">
     <h4 class="card-title">${title}</h4>
     <p class="card-price">Price:$${price}</p>
-    <button class="card-button pe-4 ps-2" data-id=${id}>Delete</button>
+    <button class="button-card pe-4 ps-2" data-id=${id}>Delete</button>
 </div>
 </div>
 </a>
@@ -105,14 +105,22 @@
     }
     //delete cart
     document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('card-button')) {
+        if (e.target.classList.contains('button-card')) {
             deletePitch(e.target.dataset.id)
         }
+        
     })
     function deletePitch(id) {
-        let delPitch = fetch(`https://backend-intern-h5fj.onrender.com/cart/${id}`, {
+        fetch(`https://backend-intern-1-h5e8.onrender.com/cart/${id}`, {
             method: 'DELETE'
         })
+        .then((res) => res.json())
+            .then((data) => {
+                List(data)
+                productdata = data
+            }
+            )
+            .catch((err) => console.log(err))
 
     }
     document.querySelector("button").addEventListener("click",()=>{

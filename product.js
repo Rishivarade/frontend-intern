@@ -11,7 +11,7 @@ let SortLow = document.getElementById("sort-high-to-low")
 let productdata=[]
 
 function FetchData() {
-    fetch("https://backend-intern-h5fj.onrender.com/pitches")
+    fetch("https://backend-intern-1-h5e8.onrender.com/pitches")
         .then((res) => res.json())
         .then((data) => {List(data)
         productdata=data}
@@ -59,7 +59,7 @@ function Card(image, title, category, price, id,description) {
     })
 
     function DeleteProduct(id) {
-        fetch(`https://backend-intern-h5fj.onrender.com/pitches/${id}`, {
+        fetch(`https://backend-intern-1-h5e8.onrender.com/pitches/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
@@ -124,5 +124,7 @@ function Card(image, title, category, price, id,description) {
         console.log(SortLow)
         List(SortLow)
     })
+
+    
 
     
